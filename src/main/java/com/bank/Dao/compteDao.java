@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface compteDao extends JpaRepository<compteModel, Integer> {
+    public compteModel save(compteModel compte);
+
 }
