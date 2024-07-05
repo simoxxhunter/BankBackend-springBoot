@@ -22,5 +22,7 @@ public class beneficiaireModel {
     private String BankName;
 
 
-
+    @ManyToOne
+    @JoinColumn(name="compteID", nullable=false)
+    private compteModel compte;
 }

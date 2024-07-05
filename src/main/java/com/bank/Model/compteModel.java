@@ -44,4 +44,8 @@ public class compteModel {
     @JsonIgnore
     @OneToMany( mappedBy = "compte")
     private Set<transferModel> transfers;
+
+    @JsonIgnore
+    @OneToMany( mappedBy = "compte")
+    private Set<beneficiaireModel> beneficiaries;
 }
