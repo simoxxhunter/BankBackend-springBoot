@@ -1,11 +1,14 @@
 package com.bank.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.boot.registry.selector.spi.StrategySelector;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "Compte")
@@ -23,4 +26,13 @@ public class compteModel {
     private double balance;
     private String statut;
     private String raisonCloture;
+
+    @ManyToOne
+    @JoinColumn(name="userID", nullable=false)
+    private userModel user;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy="compte")
+    private Set<transactionModel> transactions;
 }

@@ -24,4 +24,9 @@ public class transactionModel {
     private double montant;
     private String type;
     private String description;
+
+
+    @ManyToOne
+    @JoinColumn(name="compte", nullable=false)
+    private compteModel compte;
 }

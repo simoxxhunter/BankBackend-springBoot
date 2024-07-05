@@ -21,7 +21,6 @@ public class compteController {
         System.out.println("compte cree avec succee");
 
     }
-
     @GetMapping("/{compteId}")
     public double getCompteBalance(@PathVariable int compteId) {
         return compteService.getCompteBalance(compteId);
