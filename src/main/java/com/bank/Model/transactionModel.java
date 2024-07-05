@@ -27,6 +27,6 @@ public class transactionModel {
 
 
     @ManyToOne
-    @JoinColumn(name="compte", nullable=false)
+    @JoinColumn(name="compteID", nullable=false)
     private compteModel compte;
 }
