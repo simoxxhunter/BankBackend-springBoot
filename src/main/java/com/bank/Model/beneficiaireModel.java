@@ -22,4 +22,5 @@ public class beneficiaireModel {
     private String BankName;
 
 
+
 }

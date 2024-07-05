@@ -22,4 +22,9 @@ public class transferModel {
     private LocalDateTime dateHeure;
     private String description;
 
+
+    @ManyToOne
+    @JoinColumn (name = "compteID", nullable = false)
+    private compteModel compte;
+
 }
