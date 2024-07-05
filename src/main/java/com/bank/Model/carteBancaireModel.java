@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.Set;
 
 @Entity
-@Table(name = "Carte ")
+@Table(name = "Carte")
 
 @Getter
 @Setter
@@ -26,4 +26,8 @@ public class carteBancaireModel {
     private String statut;
     public  String raisonBlock;
 
+
+    @ManyToOne
+    @JoinColumn(name = "compteID", nullable = false)
+    private compteModel compte;
 }
