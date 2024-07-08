@@ -5,6 +5,8 @@ import com.bank.Services.compteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/compte")
 public class compteController {
@@ -12,18 +14,20 @@ public class compteController {
     @Autowired
     private compteService compteService;
 
-    @Autowired
-    private com.bank.Dao.compteDao compteDao;
-
-    @PostMapping("/{createNewAccount}")
-    public void createAccount(@RequestBody compteModel compte) {
-        compteDao.save(compte);
-        System.out.println("compte cree avec succee");
-
+    @PostMapping("/{userID}/createNewAccount")
+    public void createAccount(@PathVariable long userID, @RequestBody compteModel compte) {
+        compteService.createAccount(userID, compte);
+        System.out.println("compte créé avec succès");
     }
+
     @GetMapping("/{compteId}")
-    public double getCompteBalance(@PathVariable int compteId) {
-        return compteService.getCompteBalance(compteId);
+    public double getcompteBalance(@PathVariable int compteId) {
+        return compteService.getcompteBalance(compteId);
+    }
+
+    @GetMapping("/userid={userID}")
+    public List<compteModel> getAllComptesByUserId(@PathVariable long userID) {
+        return compteService.getAllComptesByUserId(userID);
     }
 
 }
