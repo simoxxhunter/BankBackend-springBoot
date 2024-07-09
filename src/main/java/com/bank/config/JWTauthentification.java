@@ -21,13 +21,14 @@ public class JWTauthentification extends OncePerRequestFilter {
             throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
         final String jwt ;
+
         if (authHeader != null || authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
 
         }
         jwt = authHeader.substring(7);
-        userName = jwtService.extractUsername(jwt);
+        final String userName = jwtService.extractUsername(jwt);
 
     }
 }
