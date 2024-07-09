@@ -11,7 +11,7 @@ import com.bank.Dao.*;
 import java.util.List;
 
 @Service
-public class userService {
+public class userService implements  userS {
 
     @Autowired
     private compteDao compteDao;

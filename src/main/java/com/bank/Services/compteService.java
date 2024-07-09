@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class compteService {
+public class compteService implements  compteS {
 
     @Autowired
     private compteDao compteDao;

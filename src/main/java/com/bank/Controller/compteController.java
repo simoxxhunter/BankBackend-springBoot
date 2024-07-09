@@ -1,7 +1,7 @@
 package com.bank.Controller;
 
 import com.bank.Model.compteModel;
-import com.bank.Services.compteService;
+import com.bank.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class compteController {
 
     @Autowired
-    private compteService compteService;
+    private compteS compteService;
 
     @PostMapping("/{userID}/createNewAccount")
     public void createAccount(@PathVariable long userID, @RequestBody compteModel compte) {
@@ -25,9 +25,6 @@ public class compteController {
         return compteService.getcompteBalance(compteId);
     }
 
-    @GetMapping("/userid={userID}")
-    public List<compteModel> getAllComptesByUserId(@PathVariable long userID) {
-        return compteService.getAllComptesByUserId(userID);
-    }
+
 
 }

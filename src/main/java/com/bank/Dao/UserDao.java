@@ -9,10 +9,10 @@ import com.bank.Services.*;
 import com.bank.Dao.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserDao extends JpaRepository<userModel, Long> {
-
-
+    Optional<userModel> findByUserName(String userName);
 }
 
