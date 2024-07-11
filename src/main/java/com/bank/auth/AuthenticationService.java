@@ -1,6 +1,8 @@
 package com.bank.auth;
 
 import com.bank.Dao.UserDao;
+import com.bank.Model.Role;
+import com.bank.Model.userModel;
 import com.bank.Services.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 
 @Service
 @RequiredArgsConstructor
@@ -19,11 +22,9 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
-        var user = User.builder()
-                .firstname(request, getFirstname())
-                .lastname(request, getLastname())
-                .email(request, getEmail())
-                .password(passwordEncoder.encode(request, getPassword()))
+        var user = userModel.builder()
+                .userName(request.getUsername())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
         repository.save(user);
@@ -36,11 +37,11 @@ public class AuthenticationService {
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
+                        request.getUsername(),
                         request.getPassword()
                 )
  );
-        var user = repository.findByUserName(request.getEmail())
+        var user = repository.findByUserName(request.getUsername())
                 .orElseThrow();
 
         var jwtToken = jwtService.generateToken(user);
