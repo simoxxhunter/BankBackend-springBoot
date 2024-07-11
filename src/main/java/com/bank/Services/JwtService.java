@@ -16,7 +16,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
-    private static final String SECRET_KEY = "eyJhbGciOiJIUzI1NiJ9.ew0KICAic3ViIjogIjEyMzQ1Njc4OTAiLA0KICAibmFtZSI6ICJBbmlzaCBOYXRoIiwNCiAgImlhdCI6IDE1MTYyMzkwMjINCn0.CnCBjJs_zEskcmhtkbbhrVl5oT-JBKPRlwATh5yu-ak";
+    private static final String SECRET_KEY = "sCOvrumKV1xo/2DqnlGGqkP6wbld5tnc9rrEmQTYzDk=\n";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -39,14 +39,14 @@ public class JwtService {
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 +60+24))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 
     public boolean istokenValid(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        final String userName = extractUsername(token);
+        return (userName.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
     private boolean isTokenExpired(String token) {

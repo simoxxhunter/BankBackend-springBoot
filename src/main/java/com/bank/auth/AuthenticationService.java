@@ -23,7 +23,7 @@ public class AuthenticationService {
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = userModel.builder()
-                .userName(request.getUsername())
+                .userName(request.getUserName())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
@@ -37,11 +37,11 @@ public class AuthenticationService {
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
+                        request.getUserName(),
                         request.getPassword()
                 )
  );
-        var user = repository.findByUserName(request.getUsername())
+        var user = repository.findByUserName(request.getUserName())
                 .orElseThrow();
 
         var jwtToken = jwtService.generateToken(user);
