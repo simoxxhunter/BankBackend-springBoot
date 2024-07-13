@@ -1,0 +1,1 @@
+Select * from cartes where statut = 'active';
