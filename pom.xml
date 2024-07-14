@@ -129,6 +129,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<finalName>docker-ebank</finalName>
 	</build>
 
 </project>
