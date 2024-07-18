@@ -25,6 +25,10 @@ public class compteController {
         return compteService.getcompteBalance(compteId);
     }
 
+    @GetMapping
+    public List<compteModel> getAllComptes() {
+        return compteService.getAllComptes();
+    }
 
 
 

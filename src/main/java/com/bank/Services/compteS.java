@@ -11,5 +11,5 @@ public interface compteS {
 
     double getcompteBalance(int compteId);
 
-    List<compteModel> gelAllComptes();
+    List<compteModel>  getAllComptes();
 }

@@ -3,7 +3,6 @@ package com.bank.Services;
 import com.bank.Model.compteModel;
 import com.bank.Dao.compteDao;
 import com.bank.Dao.UserDao;
-import com.bank.Model.compteModel;
 import com.bank.Model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +23,11 @@ public class compteService implements  compteS {
         return compte.getBalance();
     }
 
+
+    public  List<compteModel> getAllComptes() {
+        return compteDao.findAll();
+    }
+
     public void createAccount(long userID, compteModel compte) {
         userModel user = userDao.getReferenceById(userID);
         compte.setUser(user);
@@ -33,7 +37,6 @@ public class compteService implements  compteS {
     public List<compteModel> getAllComptesByUserId(long userID) {
         return compteDao.findByUser_UserID(userID);
     }
-    public  List<compteModel>  getAllComptes() {
-        return compteDao.findAll();
-    }
+
+
 }
