@@ -24,7 +24,6 @@ public class compteController {
     public double getcompteBalance(@PathVariable int compteId) {
         return compteService.getcompteBalance(compteId);
     }
-
     @GetMapping
     public List<compteModel> getAllComptes(){
         return compteService.getAllComptes();
