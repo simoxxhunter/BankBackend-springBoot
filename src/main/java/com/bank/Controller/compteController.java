@@ -26,7 +26,7 @@ public class compteController {
     }
 
     @GetMapping
-    public List<compteModel> getAllComptes() {
+    public List<compteModel> getAllComptes(){
         return compteService.getAllComptes();
     }
 
