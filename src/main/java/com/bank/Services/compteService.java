@@ -33,4 +33,7 @@ public class compteService implements  compteS {
     public List<compteModel> getAllComptesByUserId(long userID) {
         return compteDao.findByUser_UserID(userID);
     }
+    public  List<compteModel>  getAllComptes() {
+        return compteDao.findAll();
+    }
 }

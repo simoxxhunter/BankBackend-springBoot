@@ -13,5 +13,4 @@ public interface compteDao extends JpaRepository<compteModel, Integer> {
     List<compteModel> findByUser_UserID(long userID);
 
 
-
 }
