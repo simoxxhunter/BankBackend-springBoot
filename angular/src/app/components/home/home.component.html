@@ -1,12 +1,35 @@
-<mat-tab-group preserveContent>
-  
+<mat-tab-group preserveContent class="container mt-4">
   <mat-tab *ngFor="let account of accounts" [label]="account.compteType">
-    <p>Account ID: {{account.compteID}}</p>
-    <p>Account Type: {{account.compteType}}</p>
-    <p>Status: {{account.statut}}</p>
-    <p>Closure Reason: {{account.raisonCloture}}</p>
-    <p>Exit Date: {{account.dateSortie}}</p>
-    <p>Balance: {{account.balance}}</p>
-    hgfjhgjhg
+    <div class="card mt-3 shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Account Details: {{account.compteType}}</h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Account ID</h6>
+                <p class="card-text text-primary">{{account.compteID}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card bg-light">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Status</h6>
+                <p class="card-text text-success">{{account.statut}}</p>
+              </div>
+            </div>
+          </div>
+         </div>
+        <div class="card bg-light mt-3">
+          <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted">Balance</h6>
+            <p class="card-text text-primary text-success h4" >{{account.balance}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </mat-tab>
 </mat-tab-group>
