@@ -30,6 +30,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './components/login/login.component';
+import { CardsComponent } from './components/cards/cards.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { LoginComponent } from './components/login/login.component';
     AppComponent,
     HomeComponent,
     LoginComponent,
+    CardsComponent,
   ],
 
   imports: [
