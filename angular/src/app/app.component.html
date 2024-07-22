@@ -27,7 +27,7 @@
       <mat-menu #appMenu="matMenu">
         <button mat-menu-item>Settings</button>
         <button mat-menu-item routerLink="/help">Help</button>
-        <a class="maroon" mat-menu-item href="http://localhost:3000/repository/documents/terms-and-conditions-template.pdf">Terms of use</a>
+        <a class="maroon" mat-menu-item >Terms of use</a>
         <button mat-menu-item routerLink="/help">Corporate documents</button>
         <button mat-menu-item routerLink="/help">Suppliers</button>
         <button mat-menu-item routerLink="/help">Disclaimer</button>
@@ -38,8 +38,8 @@
       </button>
     </li>
     <li>
-      <button mat-icon-button>
-        <mat-icon class="menu-dots">logout</mat-icon>
+      <button mat-icon-button (click)="logout()">
+        <mat-icon class="menu-dots" >logout</mat-icon>
       </button>
     </li>
   </ul>
